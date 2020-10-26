@@ -4,7 +4,7 @@ public class AdjacencyListGraph {
     private ArrayList<Vertex> vertices;
 
     public AdjacencyListGraph() {
-        vertices = new ArrayList<Vertex>();
+        vertices = new ArrayList<>();
     }
 
     public void addVertex(Vertex vertex) {
@@ -21,14 +21,16 @@ public class AdjacencyListGraph {
 
     public void printGraph() {
         Vertex currentVertex;
-        for (int i=0; i<vertices.size(); i++) {
-            currentVertex=vertices.get(i);
-            System.out.println(" Edges from Vertex: " + currentVertex.getName());
-            for (int j=0; j<currentVertex.getOutEdges().size(); j++) {
-                Edge currentedge = currentVertex.getOutEdges().get(j);
-                System.out.println("To " + currentedge.getToVertex().getName() + " weight " + currentedge.getWeight());
+        for (Vertex vertex : vertices) {
+            currentVertex = vertex;
+            if (currentVertex.getOutEdges().size() > 0) {
+                System.out.println("Edges from Vertex: " + currentVertex.getName().toUpperCase());
             }
-            System.out.println(" ");
+            for (int j = 0; j < currentVertex.getOutEdges().size(); j++) {
+                Edge currentedge = currentVertex.getOutEdges().get(j);
+                System.out.println(" To " + currentedge.getToVertex().getName() + " distance " + currentedge.getWeight() + "km");
+            }
+            System.out.println();
         }
     }
 }
@@ -72,13 +74,7 @@ class Vertex implements Comparable<Vertex> {
     }
 
     public int compareTo(Vertex vertex) {
-        if (this.distance<vertex.distance) {
-            return -1;
-        }
-        if (this.distance>vertex.distance) {
-            return 1;
-        }
-        return 0;
+        return this.distance.compareTo(vertex.distance);
     }
 }
 

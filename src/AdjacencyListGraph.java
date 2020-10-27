@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class AdjacencyListGraph {
     private ArrayList<Vertex> vertices;
@@ -19,6 +21,34 @@ public class AdjacencyListGraph {
         Edge newEdge = new Edge(from, to, dist);
     }
 
+    public void MSTPrims() {
+        int[] distance = new int[vertices.size()];
+        int[] predecessor = new int[vertices.size()];
+        int[] visited = new int[vertices.size()];
+        PriorityQueue<Vertex> Q = new PriorityQueue<>();
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        Arrays.fill(predecessor, -1);
+        Arrays.fill(visited, 0);
+
+        if (vertices.size()>0) {
+            distance[0]=0;
+            Q.offer(vertices.get(0));
+        }
+        int counter=0;
+        int MST=0;
+
+        while (!Q.isEmpty() && counter<vertices.size()) {
+            Vertex u = Q.poll();
+
+
+        }
+
+        for (Vertex vertex : vertices) {
+            System.out.println(vertex.getName());
+
+        }
+    }
+
     public void printGraph() {
         Vertex currentVertex;
         for (Vertex vertex : vertices) {
@@ -28,7 +58,7 @@ public class AdjacencyListGraph {
             }
             for (int j = 0; j < currentVertex.getOutEdges().size(); j++) {
                 Edge currentedge = currentVertex.getOutEdges().get(j);
-                System.out.println(" To " + currentedge.getToVertex().getName() + " distance " + currentedge.getWeight() + "km");
+                System.out.println("    to " + currentedge.getToVertex().getName() + " distance " + currentedge.getWeight() + "km");
             }
             System.out.println();
         }

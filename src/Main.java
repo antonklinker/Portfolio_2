@@ -2,6 +2,22 @@ public class Main {
     public static void main(String[] args) {
         AdjacencyListGraph adjgraph = new AdjacencyListGraph();
 
+        addData(adjgraph);
+
+
+
+
+
+        adjgraph.printGraph();
+
+        System.out.println("_____________________");
+
+        adjgraph.MSTPrims();
+
+
+    }
+
+    public static void addData(AdjacencyListGraph adjgraph) {
         Vertex Eskildstrup = new Vertex ("Eskildstrup");
         Vertex Haslev = new Vertex ("Haslev");
         Vertex Holbæk = new Vertex ("Holbæk");
@@ -116,11 +132,5 @@ public class Main {
         adjgraph.newEdge(Ringsted, Sorø, 15);
         adjgraph.newEdge(Ringsted, Vordingborg, 58);
         adjgraph.newEdge(Slagelse, Sorø, 14);
-
-
-
-        adjgraph.printGraph();
-
-
     }
 }

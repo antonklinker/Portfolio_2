@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
+
+        // The program doesn't work. I made a comment in AdjacencyListGraph.java at line 45
+        // Please look at the comment and give me some specific advice on how to get further
+        // Thank you
         AdjacencyListGraph adjgraph = new AdjacencyListGraph();
 
         addData(adjgraph);
-
-
-
-
 
         adjgraph.printGraph();
 

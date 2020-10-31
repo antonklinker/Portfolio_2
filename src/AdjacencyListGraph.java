@@ -40,13 +40,25 @@ public class AdjacencyListGraph {
         while (!Q.isEmpty() && counter<vertices.size()) {
             Vertex u = Q.poll();
 
+            if (visited[u.index]!=1) {
+                for (int v=0; v<vertices.size(); v++) {
+                    // I'm stuck here and I'm not sure how to progress. I'm not sure how to measure the edges of
+                    // the vertices towards eachother and I really need some feedback on how to do so.
+                }
+            }
 
         }
 
-        for (Vertex vertex : vertices) {
+        /*for (Vertex vertex : vertices) {
             System.out.println(vertex.getName());
 
-        }
+            for (int i=0; i<vertex.getOutEdges().size(); i++) {
+                Edge currentedge = vertex.getOutEdges().get(i);
+                System.out.println(currentedge.getWeight());
+            }
+
+        }*/
+
     }
 
     public void printGraph() {
@@ -69,7 +81,9 @@ class Vertex implements Comparable<Vertex> {
 
     private String name;
     private ArrayList<Edge> outEdges;
+    Vertex prev = null;
     Integer distance = Integer.MAX_VALUE;
+    Integer index;
 
     public String getName() {
         return name;
@@ -97,6 +111,7 @@ class Vertex implements Comparable<Vertex> {
 
     public Vertex(String id) {
         this.name=id;
+        index=0;
         outEdges=new ArrayList<>();
     }
     public void addOutedge(Edge outEdge) {

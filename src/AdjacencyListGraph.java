@@ -39,13 +39,14 @@ public class AdjacencyListGraph {
 
         while (!Q.isEmpty() && counter<vertices.size()) {
             Vertex u = Q.poll();
+            System.out.println(Q.poll());
 
             if (visited[u.index]!=1) {
                 for (int v=0; v<vertices.size(); v++) {
-                    // I'm stuck here and I'm not sure how to progress. I'm not sure how to measure the edges of
-                    // the vertices towards eachother and I really need some feedback on how to do so.
+                    System.out.println(vertices.get(v).getName());
                 }
             }
+            System.out.println(u.getName());
 
         }
 
